@@ -17,4 +17,27 @@ const prompt = require('prompt');
 
   let board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
       human, computer;
+
+  function assignPlayerTokens() {
+    return new Promise((resolve, reject) => {
+      const schema = {
+        properties: {
+          token: {
+            pattern: /(^[xXoO])/,
+            message: 'Please choose X or O.\n',
+            required: true
+          }
+        }
+      };
+  
+      console.log('Which player do you want to be? X or O?\n');
+      prompt.start();
+      prompt.get(schema, (err, result) => {
+        human = result.token.toUpperCase().trim();
+        computer = human === 'X' ? 'O' : 'X';
+        resolve(human);
+        console.log(`\nYou are ${human}. The computer is ${computer}.\n`);
+      });
+    });
+  }
 })();
