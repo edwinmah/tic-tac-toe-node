@@ -102,4 +102,24 @@ const prompt = require('prompt');
 
     player === human ? playerTurn(computer) : playerTurn(human);
   }
+
+  function playerTurn(player) {
+    if (player === human) {
+      console.log(
+        `*********************\n\nYour turn human player: ${player}\nEnter a number from 1 to 9\nto record your turn in an empty cell.\n`
+      );
+
+      prompt.start();
+      prompt.get(['position'], (err, result) => {
+        if (isValidMove(result.position, player)) {
+          turnsControl(result.position, player);
+        } else {
+          console.log('\nPlease enter a valid position.\n');
+          playerTurn(player);
+        }
+      });
+    } else {
+      turnsControl(computersMove(board), player);
+    }
+  }
 })();
