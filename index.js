@@ -55,4 +55,8 @@ const prompt = require('prompt');
       resolve(human);
     });
   }
+
+  function isValidMove(position, player) {
+    return board[player === human ? position - 1 : position] === ' ';
+  }
 })();
