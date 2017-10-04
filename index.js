@@ -59,4 +59,17 @@ const prompt = require('prompt');
   function isValidMove(position, player) {
     return board[player === human ? position - 1 : position] === ' ';
   }
+
+  function isWinner(player) {
+    let i, combo;
+    const length = WINNING_COMBOS.length;
+
+    for (i = 0; i < length; i++) {
+      combo = WINNING_COMBOS[i];
+      if (board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]] && board[combo[0]] !== ' ') {
+        return true;
+      };
+    }
+    return false;
+  }
 })();
