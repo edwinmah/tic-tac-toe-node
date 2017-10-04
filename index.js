@@ -57,7 +57,7 @@ const prompt = require('prompt');
   }
 
   function isValidMove(position, player) {
-    return board[player === human ? position - 1 : position] === ' ';
+    return board[player === human ? --position : position] === ' ';
   }
 
   function isBoardFull() {
@@ -87,7 +87,7 @@ const prompt = require('prompt');
   }
 
   function turnsControl(position, player) {
-    board[player === human ? position - 1 : position] = player;
+    board[player === human ? --position : position] = player;
     displayBoard();
 
     if (isWinner(player)) {
