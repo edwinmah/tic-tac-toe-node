@@ -122,4 +122,8 @@ const prompt = require('prompt');
       turnsControl(computersMove(board), player);
     }
   }
+
+  assignPlayerTokens()
+  .then(displayBoard)
+  .then(playerTurn);
 })();
