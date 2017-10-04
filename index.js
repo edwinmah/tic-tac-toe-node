@@ -76,4 +76,13 @@ const prompt = require('prompt');
     }
     return false;
   }
+
+  function computersMove(board) {
+    const random = Math.floor(Math.random() * (board.length - 1));
+    if (isValidMove(random, computer)) {
+      return random;
+    } else {
+      return computersMove(board);
+    }
+  }
 })();
