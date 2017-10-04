@@ -85,4 +85,21 @@ const prompt = require('prompt');
       return computersMove(board);
     }
   }
+
+  function turnsControl(position, player) {
+    board[player === human ? position - 1 : position] = player;
+    displayBoard();
+
+    if (isWinner(player)) {
+      console.log(`${player} has won!\n`);
+      return;
+    }
+
+    if (isBoardFull()) {
+      console.log('It\'s a draw!\n');
+      return;
+    }
+
+    player === human ? playerTurn(computer) : playerTurn(human);
+  }
 })();
