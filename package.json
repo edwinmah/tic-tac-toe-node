@@ -1,0 +1,14 @@
+{
+  "name": "edwin-mah-ttt",
+  "version": "1.0.0",
+  "description": "A Tic Tac Toe command line game",
+  "main": "index.js",
+  "scripts": {
+    "play": "node index.js"
+  },
+  "author": "Edwin Mah",
+  "license": "ISC",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
