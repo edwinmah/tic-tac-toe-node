@@ -60,6 +60,10 @@ const prompt = require('prompt');
     return board[player === human ? position - 1 : position] === ' ';
   }
 
+  function isBoardFull() {
+    return board.indexOf(' ') === -1;
+  }
+
   function isWinner(player) {
     let i, combo;
     const length = WINNING_COMBOS.length;
