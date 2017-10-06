@@ -61,7 +61,7 @@ const prompt = require('prompt');
   }
 
   function isBoardFull() {
-    return board.indexOf(' ') === -1;
+    return !board.includes(' ');
   }
 
   function isWinner(player) {
